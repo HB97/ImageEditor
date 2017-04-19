@@ -9,7 +9,8 @@ public class ImageEditorFrame extends JFrame{
 
 	public ImageEditorFrame(){
 		createMenuBar();
-			
+			panel = new ImageEditorPanel();
+			add(panel);
 		setTitle("Image Editor");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setSize(400, 300);
@@ -33,4 +34,6 @@ public class ImageEditorFrame extends JFrame{
 	private void onOpen(){
 		JOptionPane.showMessageDialog(this, "Open Selected");
 	}
+	
+	private void setDummyImage(){    BufferedImage bufferedImage =           new BufferedImage(400, 300, BufferedImage.TYPE_INT_RGB);    Graphics g = bufferedImage.getGraphics();    g.setColor(Color.YELLOW);    g.fillOval(10, 10, 380, 280);    panel.setImage(bufferedImage); } 
 }
